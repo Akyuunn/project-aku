@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login SaludVida</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+<div class="col-md-4 offset-md-4">
+    <div class="card-custom">
+        <h3 class="mb-4 text-center">Iniciar Sesión</h3>
+
+        <form method="post">
+            {% csrf_token %}
+            
+            {% if form.errors %}
+                <p style="color: red; text-align: center;">Usuario o contraseña incorrectos</p>
+            {% endif %}
+
+            <input name="username" class="form-control mb-3" placeholder="Correo / Usuario" required>
+            
+            <input type="password" name="password" class="form-control mb-3" placeholder="Contraseña" required>
+
+            <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

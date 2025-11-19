@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/medicos.css' %}">
+{% endblock %}
+
+{% block contenido %}
+<h2>Médicos</h2>
+
+<div class="card-custom">
+    <a href="{% url 'crear_medico' %}" class="btn btn-success">Registrar Médico</a>
+</div>
+
+<div class="table-custom">
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>RUT</th>
+            <th>Especialidad</th>
+            <th>Correo</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for medico in medicos %}
+        <tr>
+            <td>{{ medico.id }}</td>
+            <td>{{ medico.nombre_completo }}</td>
+            <td>{{ medico.rut }}</td>
+            <td>{{ medico.especialidad }}</td>
+            <td>{{ medico.correo }}</td>
+            <td>
+                <a href="{% url 'editar_medico' medico.id %}" class="btn btn-warning">Editar</a>
+                <a href="{% url 'eliminar_medico' medico.id %}" class="btn btn-danger" onclick="return confirm('¿Seguro que deseas eliminar?');">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No hay médicos registrados aún.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

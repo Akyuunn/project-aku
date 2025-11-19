@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock %}
+
+{% block contenido %}
+<div class="form-container"></div>
+<div class="col-md-6 offset-md-3">
+    <div class="card-custom">
+        <h3 style="color:#0b3a91; text-align:center;">{{ titulo }}</h3>
+        
+        {% if form.non_field_errors %}
+            <div style="background:#ffd2d2; color:#910b0b; padding:10px; border-radius:5px; margin-bottom:15px;">
+                {{ form.non_field_errors.0 }}
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div style="margin-bottom: 15px;">
+                    <label style="display:block; font-weight:bold; color:#27406a;">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <small style="color:red;">{{ field.errors.0 }}</small>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <div style="text-align:right; margin-top:20px;">
+                <a href="{% url 'lista_citas' %}" class="btn btn-secondary" style="background:#6c757d; text-decoration:none;">Cancelar</a>
+                <button type="submit" class="btn btn-success">Agendar Cita</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

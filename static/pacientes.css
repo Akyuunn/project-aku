@@ -1,0 +1,4 @@
+
+.card-custom .btn { float:right; }
+.table-custom thead th:nth-child(2){ width:90px; } /* foto */
+.imagen-lista{ width:68px; height:68px; }

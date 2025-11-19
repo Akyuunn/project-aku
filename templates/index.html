@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block contenido %}
+<h2>Bienvenido</h2>
+
+<div class="card-custom">
+    <p>Sistema para gestionar médicos, pacientes y citas médicas.</p>
+
+    <div class="index-buttons">
+        <a href="{% url 'lista_medicos' %}" class="btn btn-primary">Médicos</a>
+        <a href="{% url 'lista_pacientes' %}" class="btn btn-primary">Pacientes</a>
+        <a href="{% url 'lista_citas' %}" class="btn btn-primary">Citas</a>
+    </div>
+</div>
+{% endblock %}

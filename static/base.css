@@ -1,0 +1,54 @@
+
+* { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+body { margin:0; background:#eef3ff; color:#17223b; }
+
+
+.sidebar{
+  position:fixed; left:0; top:0; bottom:0; width:230px;
+  background: linear-gradient(180deg,#0f3fae,#0560d6);
+  color:#fff; padding-top:24px; box-shadow:0 6px 20px rgba(3,30,80,0.12);
+}
+.sidebar a{ display:block; color:#fff; text-decoration:none; padding:12px 20px; font-weight:600; transition:all .15s;}
+.sidebar a:hover{ background: rgba(255,255,255,0.06); padding-left:28px; }
+
+
+.nav-superior {
+  position:fixed; left:230px; right:0; top:0; height:60px;
+  background:#fff; border-bottom:1px solid #e6eaf6;
+  display:flex; align-items:center; justify-content:space-between; padding:0 22px; z-index:30;
+}
+
+
+.contenido { margin-left:230px; padding:92px 34px; min-height:calc(100vh - 120px); }
+
+
+.card-custom { background:#fff; border-radius:12px; padding:20px; box-shadow:0 6px 18px rgba(20,40,90,0.06); margin-bottom:22px; }
+
+
+h2 { color:#0b3a91; margin-top:0; font-weight:700; }
+
+
+.btn { border:none; cursor:pointer; border-radius:22px; padding:8px 16px; font-weight:700; color:#fff; }
+.btn-primary{ background:#1b55f5; } .btn-success{ background:#0ebb87; } .btn-warning{ background:#ff9c2b; } .btn-danger{ background:#f54242; }
+.btn:hover{ opacity:0.92; }
+
+
+.table-custom{ background:#fff; border-radius:10px; box-shadow:0 6px 18px rgba(20,40,90,0.05); overflow:hidden; }
+.table-custom table{ width:100%; border-collapse:collapse; }
+.table-custom thead{ background:#e9efff; color:#1d2f63; font-weight:700; }
+.table-custom th, .table-custom td{ padding:12px 16px; border-bottom:1px solid #e9eef9; text-align:left; vertical-align:middle; }
+.table-custom tbody tr:hover{ background: rgba(42,105,255,0.05); }
+
+
+label{ display:block; font-weight:700; margin-bottom:6px; color:#27406a; }
+input, select, textarea { width:100%; padding:10px 12px; border-radius:10px; border:1px solid #d3e0ff; background:#fbfdff; margin-bottom:12px; }
+
+
+.imagen-lista{ width:72px; height:72px; object-fit:cover; border-radius:8px; border:1px solid #dfe9ff; }
+
+@media (max-width:800px){
+  .sidebar{ width:70px; }
+  .nav-superior{ left:70px; }
+  .contenido{ margin-left:70px; padding:80px 16px; }
+  .sidebar a{ font-size:0; padding:12px 12px; }
+}

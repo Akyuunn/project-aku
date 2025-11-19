@@ -1,0 +1,6 @@
+
+.card-custom .btn { float:right; }
+.table-custom thead th:nth-child(2){ width:90px; } /* foto */
+.table-custom td img.imagen-lista{ width:72px; height:72px; }
+.btn-warning{ background:#f6b83a; } /* editar */
+.btn-danger{ background:#ff6b6b; }  /* eliminar */

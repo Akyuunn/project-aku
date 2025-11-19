@@ -1,0 +1,3 @@
+.card-custom { display:flex; gap:12px; align-items:center; justify-content:space-between; }
+.card-actions { display:flex; gap:10px; }
+.table-custom td{ font-size:15px; }

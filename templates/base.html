@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Centro Médico SaludVida</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+
+<div class="sidebar">
+    <a href="{% url 'inicio' %}">🏠 Inicio</a>
+    <a href="{% url 'lista_medicos' %}">🩺 Médicos</a>
+    <a href="{% url 'lista_pacientes' %}">👤 Pacientes</a>
+    <a href="{% url 'lista_citas' %}">📅 Citas</a>
+    <a href="{% url 'lista_citas' %}?buscar=true">🔎 Buscar Citas</a>
+
+    <br><br>
+    {% if user.is_authenticated %}
+        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" style="background:none; border:none; color:#ffd2d2; cursor:pointer; padding-left: 20px;">Cerrar sesión</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}" style="color:#ffd2d2;">Iniciar Sesión</a>
+    {% endif %}
+</div>
+
+<div class="nav-superior">
+    <h4>Centro Médico SaludVida</h4>
+    <span>Usuario: {{ user.email|default:"Invitado" }}</span>
+</div>
+
+<div class="contenido">
+    {% if messages %}
+        {% for message in messages %}
+            <div style="padding: 10px; background: #d4edda; color: #155724; margin-bottom: 15px; border-radius: 5px;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% block contenido %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
