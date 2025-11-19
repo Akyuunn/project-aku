@@ -83,7 +83,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'panconques123!', # <--- ¡Cámbialo!
         'HOST': 'db.cpbhqshcmddwviqiduye.supabase.co',     # Copiado de tu imagen
-        'PORT': '5432',
+        'PORT': '6543',
     }
 }
 
