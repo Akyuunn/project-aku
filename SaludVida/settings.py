@@ -124,15 +124,18 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# Esto le dice a Django: "Busca también en la carpeta static que creé en la raíz"
+# ESTA LÍNEA ES LA QUE FALTA O NO SE ESTÁ LEYENDO:
+# Define dónde Render guardará los archivos finales.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Esto le dice a Django dónde buscar tus archivos CSS de desarrollo
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-# Configuración de producción (que ya deberías tener para Render)
-if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Configuración de Whitenoise para producción
+# (Esto comprime los archivos para que carguen rápido)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
