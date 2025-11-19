@@ -42,8 +42,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # <--- Esta es para Render (Estilos)
-    'django.contrib.sessions.middleware.SessionMiddleware', # <--- ESTA FALTABA
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # <--- ¡AQUÍ, EN SEGUNDO LUGAR!
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -135,9 +135,15 @@ STATICFILES_DIRS = [
 
 # Configuración de Whitenoise para producción
 # (Esto comprime los archivos para que carguen rápido)
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Le decimos que vaya a la vista con name='inicio' después de entrar
+LOGIN_REDIRECT_URL = 'inicio'
+
+# Le decimos que vaya al login después de salir (opcional, por seguridad)
+LOGOUT_REDIRECT_URL = 'login'
